@@ -8,16 +8,16 @@ namespace AddressBookCode
     class AddressBook
     {
         List<Contact> list = new List<Contact>();
-        public void InputValues()
+        public void InputValues(string firstName, string lastName, string address, string city, string state, string zipCode, string phoneNo, string eMail)
         {
             string[] details;
             Console.WriteLine(" Enter the following details in order seperated by ,");
             Console.WriteLine(" 1. First Name\n 2. Last Name\n 3. Address\n 4. City\n 5. State\n 6. Zip Code\n 7. Phone Number\n 8. Email ID\n ");
             details = Console.ReadLine().Split(",");
-            Contact contact1 = new Contact(details[0], details[1], details[2], details[3], details[4], details[5], details[6], details[7]);
+            Contact contact1 = new Contact(firstName, lastName, address, city, state, zipCode, phoneNo, eMail);
             list.Add(contact1);
         }
-        public void Display()
+        public void Display(string firstName, string lastName, string address, string city, string state, string zipCode, string phoneNo, string eMail)
         {
             foreach(Contact contact1 in list)
             {
@@ -62,6 +62,17 @@ namespace AddressBookCode
                 if (i.firstName == firstName)
                     list.Remove(i);
             }
+        }
+        public bool checkName(string firstName)
+        {
+            foreach(Contact c in list)
+            {
+                if(c.firstName.Equals(firstName))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
+﻿
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Security.Cryptography;
 
 namespace AddressBookCode
 {
@@ -9,53 +9,78 @@ namespace AddressBookCode
     {
         static void Main(string[] args)
         {
-            string firstName, lastName, address, city, state, zipCode, phoneNo, eMail;
-            Console.WriteLine(" Welcome to Address Book Program!!! ");
-            Console.WriteLine(" Enter the following details in order");
-            Console.WriteLine(" 1. First Name\n 2. Last Name\n 3. Address\n 4. City\n 5. State\n 6. Zip Code\n 7. Phone Number\n 8. Email-ID\n ");
-            firstName = Console.ReadLine();
-            lastName = Console.ReadLine();
-            address = Console.ReadLine();
-            city = Console.ReadLine();
-            state = Console.ReadLine();
-            zipCode = Console.ReadLine();
-            phoneNo = Console.ReadLine();
-            eMail = Console.ReadLine();
-            Contact contact = new Contact(firstName, lastName, address, city, state, zipCode, phoneNo, eMail);
-            contact.DisplayBook();
-            AddressBook addressBook = new AddressBook();
-            Console.WriteLine(" Welcome to Address Book Program!!! ");
-            int num = 1;
-            while(num==1)
+            string name = "";
+            int choice = 0;
+            string[] details;
+            MultipleAddressBook multipleAddressBook = new MultipleAddressBook();
+            AddressBook addressBook = null;
+            Console.WriteLine(" Welcome to Address Book Program ");
+            while (true)
             {
-                List<Contact> list = new List<Contact>();
-                Console.WriteLine(" Enter your choice:\n 0. Add Data\n 1. View Data\n 2. Edit Data\n 3. Remove Data\n ");
-                int choice = Convert.ToInt32(Console.ReadLine());
-                switch(choice)
+                bool flag = true;
+                Console.WriteLine("\n 1. Add Address Book\n 2. Open Address Book ");
+                choice = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(" Enter name of address book ");
+                name = Console.ReadLine();
+                if (choice == 1)
                 {
-                    case 0:
-                        addressBook.InputValues();
-                        Console.WriteLine(" Contact Added ");
+                    multipleAddressBook.InputAddressBook(name);
+                    addressBook = multipleAddressBook.DisplayAddressBook(name);
+                }
+                else if (choice == 2)
+                {
+                    addressBook = multipleAddressBook.DisplayAddressBook(name);
+                    if (addressBook == null)
+                        Console.WriteLine(" No such Address Book exists ");
+                }
+                else
+                    Console.WriteLine(" Error. Invalid choice ");
+                while (flag)
+                {
+                    if (addressBook == null)
                         break;
-                    case 1:
-                        addressBook.Display();
-                        break;
-                    case 2:
-                        Console.WriteLine(" Enter first name of contact you want to edit ");
-                        string first = Console.ReadLine();
-                        int checkName = addressBook.addContact(first);
-                        if (checkName == 0)
-                            Console.WriteLine(" Error. Name not found ");
-                        break;
-                    case 3:
-                        Console.WriteLine(" Enter the first name of the contact to be removed ");
-                        first = Console.ReadLine();
-                        addressBook.RemoveContact(first);
-                        Console.WriteLine(" Contact Removed ");
-                        break;
-                    default:
-                        Console.WriteLine(" Please Enter correct choice 0, 1 or 2"); ;
-                        break;
+                    Console.WriteLine("\n 1. Add Contact\n 2. Edit Contact\n 3. Remove Contact\n 4. Exit\n ");
+                    choice = Convert.ToInt32(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine(" Enter the following details seperated by ,");
+                            Console.WriteLine(" 1. First Name\n 2. Last Name\n 3. Address\n 4. City\n 5. State\n 6. Zip Code\n 7. Phone Number\n 8. Email ID\n ");
+                            details = Console.ReadLine().Split(",");
+                            addressBook.InputValues(details[0], details[1], details[2], details[3], details[4], details[5], details[6], details[7]);
+                            Console.WriteLine(" Details Added ");
+                            break;
+                        case 2:
+                            Console.WriteLine(" Enter the name to edit ");
+                            name = Console.ReadLine();
+                            if (addressBook.checkName(name) == true)
+                            {
+                                Console.WriteLine(" Enter the following details seperated by ,");
+                                Console.WriteLine(" 1. Last Name\n 2. Address\n 3. City\n 4. State\n 5. Zip Code\n 6. Phone Number\n 7. Email ID\n ");
+                                details = Console.ReadLine().Split(",");
+                                addressBook.Display(name, details[0], details[1], details[2], details[3], details[4], details[5], details[6]);
+                                Console.WriteLine(" Details edited successfully ");
+                            }
+                            else
+                                Console.WriteLine(" No such contact found ");
+                            break;
+                        case 3:
+                            Console.WriteLine(" Enter the names to be removed ");
+                            name = Console.ReadLine();
+                            if (addressBook.checkName(name) == true)
+                            {
+                                addressBook.RemoveContact(name);
+                                Console.WriteLine(" Contact removed successfully ");
+                            }
+                            else
+                                Console.WriteLine(" No such contact found ");
+                            break;
+                        case 4:
+                            flag = false;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
