@@ -54,14 +54,14 @@ namespace AddressBookCode
                     c = 0;
             }
             return c;
-            Console.WriteLine(" FIRST NAME: " + firstName);
-            Console.WriteLine(" LAST NAME: " + details[0]);
-            Console.WriteLine(" ADDRESS: " + details[1]);
-            Console.WriteLine(" CITY: " + details[2]);
-            Console.WriteLine(" STATE: " + details[3]);
-            Console.WriteLine(" ZIP CODE: " + details[4]);
-            Console.WriteLine(" PHONE NUMBER: " + details[5]);
-            Console.WriteLine(" EMAIL ID: " + details[6]);
+        }
+        public void RemoveContact(string firstName)
+        {
+            foreach(Contact i in list)
+            {
+                if (i.firstName == firstName)
+                    list.Remove(i);
+            }
         }
     }
 }

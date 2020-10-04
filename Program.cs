@@ -27,12 +27,13 @@ namespace AddressBookCode
             while(num==1)
             {
                 List<Contact> list = new List<Contact>();
-                Console.WriteLine(" Enter your choice:\n 0. Add Data\n 1. View Data\n 2. Edit Data\n");
+                Console.WriteLine(" Enter your choice:\n 0. Add Data\n 1. View Data\n 2. Edit Data\n 3. Remove Data\n ");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch(choice)
                 {
                     case 0:
                         addressBook.InputValues();
+                        Console.WriteLine(" Contact Added ");
                         break;
                     case 1:
                         addressBook.Display();
@@ -43,6 +44,12 @@ namespace AddressBookCode
                         int checkName = addressBook.addContact(first);
                         if (checkName == 0)
                             Console.WriteLine(" Error. Name not found ");
+                        break;
+                    case 3:
+                        Console.WriteLine(" Enter the first name of the contact to be removed ");
+                        first = Console.ReadLine();
+                        addressBook.RemoveContact(first);
+                        Console.WriteLine(" Contact Removed ");
                         break;
                     default:
                         Console.WriteLine(" Please Enter correct choice 0, 1 or 2"); ;
