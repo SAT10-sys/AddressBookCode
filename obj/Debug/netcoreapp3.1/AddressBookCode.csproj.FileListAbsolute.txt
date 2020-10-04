@@ -1,0 +1,13 @@
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\bin\Debug\netcoreapp3.1\AddressBookCode.exe
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\bin\Debug\netcoreapp3.1\AddressBookCode.deps.json
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\bin\Debug\netcoreapp3.1\AddressBookCode.runtimeconfig.json
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\bin\Debug\netcoreapp3.1\AddressBookCode.runtimeconfig.dev.json
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\bin\Debug\netcoreapp3.1\AddressBookCode.dll
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\bin\Debug\netcoreapp3.1\AddressBookCode.pdb
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\obj\Debug\netcoreapp3.1\AddressBookCode.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\obj\Debug\netcoreapp3.1\AddressBookCode.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\obj\Debug\netcoreapp3.1\AddressBookCode.AssemblyInfo.cs
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\obj\Debug\netcoreapp3.1\AddressBookCode.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\obj\Debug\netcoreapp3.1\AddressBookCode.dll
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\obj\Debug\netcoreapp3.1\AddressBookCode.pdb
+C:\Users\USER\Desktop\c#\AddressBookCode\AddressBookCode\obj\Debug\netcoreapp3.1\AddressBookCode.genruntimeconfig.cache
