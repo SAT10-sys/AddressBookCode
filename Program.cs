@@ -7,6 +7,20 @@ namespace AddressBookCode
     {
         static void Main(string[] args)
         {
+            string firstName, lastName, address, city, state, zipCode, phoneNo, eMail;
+            Console.WriteLine(" Welcome to Address Book Program!!! ");
+            Console.WriteLine(" Enter the following details in order");
+            Console.WriteLine(" 1. First Name\n 2. Last Name\n 3. Address\n 4. City\n 5. State\n 6. Zip Code\n 7. Phone Number\n 8. Email-ID\n ");
+            firstName = Console.ReadLine();
+            lastName = Console.ReadLine();
+            address = Console.ReadLine();
+            city = Console.ReadLine();
+            state = Console.ReadLine();
+            zipCode = Console.ReadLine();
+            phoneNo = Console.ReadLine();
+            eMail = Console.ReadLine();
+            Contact contact = new Contact(firstName, lastName, address, city, state, zipCode, phoneNo, eMail);
+            contact.DisplayBook();
             AddressBook addressBook = new AddressBook();
             Console.WriteLine(" Welcome to Address Book Program!!! ");
             int num = 1;
@@ -25,8 +39,8 @@ namespace AddressBookCode
                         break;
                     case 2:
                         Console.WriteLine(" Enter first name of contact you want to edit ");
-                        string firstName = Console.ReadLine();
-                        int checkName = addressBook.addContact(firstName);
+                        string first = Console.ReadLine();
+                        int checkName = addressBook.addContact(first);
                         if (checkName == 0)
                             Console.WriteLine(" Error. Name not found ");
                         break;

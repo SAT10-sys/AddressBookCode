@@ -33,6 +33,7 @@ namespace AddressBookCode
         }
         public int addContact(string firstName)
         {
+            string[] details;
             int c = 1;
             foreach(Contact i in list)
             {
@@ -40,7 +41,7 @@ namespace AddressBookCode
                 {
                     Console.WriteLine(" Enter New Details as follows seperated by ,");
                     Console.WriteLine(" Last Name\n Address\n City\n State\n Zip Code\n Phone Number\n Email ID\n");
-                    string[] details = Console.ReadLine().Split(",");
+                    details = Console.ReadLine().Split(",");
                     i.lastName = details[0];
                     i.address = details[1];
                     i.city = details[2];
@@ -53,6 +54,14 @@ namespace AddressBookCode
                     c = 0;
             }
             return c;
+            Console.WriteLine(" FIRST NAME: " + firstName);
+            Console.WriteLine(" LAST NAME: " + details[0]);
+            Console.WriteLine(" ADDRESS: " + details[1]);
+            Console.WriteLine(" CITY: " + details[2]);
+            Console.WriteLine(" STATE: " + details[3]);
+            Console.WriteLine(" ZIP CODE: " + details[4]);
+            Console.WriteLine(" PHONE NUMBER: " + details[5]);
+            Console.WriteLine(" EMAIL ID: " + details[6]);
         }
     }
 }

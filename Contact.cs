@@ -29,5 +29,16 @@ namespace AddressBookCode
             this.phoneNo = phoneNo;
             this.eMail = eMail;
         }
+        public void DisplayBook()
+        {
+            Console.WriteLine(" FIRST NAME: " + firstName);
+            Console.WriteLine(" LAST NAME: " + lastName);
+            Console.WriteLine(" ADDRESS: " + address);
+            Console.WriteLine(" CITY: " + city);
+            Console.WriteLine(" STATE: " + state);
+            Console.WriteLine(" ZIP CODE: " + zipCode);
+            Console.WriteLine(" PHONE NUMBER: " + phoneNo);
+            Console.WriteLine(" EMAIL ID: " + eMail);
+        }
     }
 }
